@@ -1,0 +1,8 @@
+a:
+  test:
+    for:
+      some:
+        yaml:
+          - 1
+          - 2
+          - 3
