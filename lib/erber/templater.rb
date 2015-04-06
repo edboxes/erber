@@ -9,12 +9,13 @@ module Erber
   end
 
   class Templater
-    def initialize(template_text)
+    def initialize(template_text, mash_type = Hashie::Mash)
       @template = ERB.new(template_text, 0, "% <> > -")
+      @mash_type = mash_type
     end
 
     def render(properties_hash)
-      mash = Hashie::Mash.new(properties_hash)
+      mash = @mash_type.new(properties_hash)
 
       mash.extend BindingMixin
 
